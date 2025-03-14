@@ -8,4 +8,6 @@ The repository consists of
 2. prep_csv.py that is used to prep data from aCurve (very specific software for data exports) in .csv format. The prep_csv function removes every third column (empty) and creates a pandas dataframe
 with time stamps as indices and variable names as in row 2 in the .csv file. 
 3. pre_process.py, which defines two functions: split and scale. The data is split into training and testing data using the split function. Data is scaled (normalized) using the function scale.
-4. evaluation.py that is used to train and evaluate several machine learning models based on MAE, MSE, RMSE and R2, and plot the predictions and true data in two ways. 
+4. evaluation.py that is used to train and evaluate several machine learning models based on MAE, MSE, RMSE and R2, and plot the predictions and true data in two ways.
+
+The repository also contains a data set test_data.csv that is provided to make show the required format of the data, and for testing the code. 
