@@ -1,3 +1,16 @@
+# --- INSTALLING REQUIRED PACKAGES ---
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+    
+# Model libraries
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.svm import SVR
+import xgboost as xgb
+
 # --- TRAIN AND EVALUATE REGRESSION MODELS ---
 def evaluate_models(X_train, X_test, y_train, y_test):
     """
@@ -11,7 +24,6 @@ def evaluate_models(X_train, X_test, y_train, y_test):
         - Nearest Neighbor
     and evaluate their performance on the test data using metrics MAE, MSE, RMSE, R2.
     """
-
     # Define models
     models = {
         "Linear Regression": LinearRegression(),
@@ -59,7 +71,7 @@ def plot_predictions(y_test, predictions):
     Generates two plots: (1) a time series plot of the actual and predicted values for each 
     model, evaluated on test data, and (2) a true vs predicted scatter plot to evaluate under or 
     overestimated ranges. 
-    """
+    """    
     # TIME SERIES PLOT
     # Defining figure size and axis
     plt.figure(figsize=(12, 8))
@@ -89,7 +101,7 @@ def plot_predictions(y_test, predictions):
 
     # Plot the true predictions vs predictions from each model
     for model_name, y_pred in predictions.items():
-        plt.plot(y_test,y_pred, label=f"{model_name} Prediction",'.')
+        plt.scatter(y_test,y_pred, label=f"{model_name} prediction")
 
     # Plotting the plot with titles and lables
     plt.title("True vs. Predicted")

@@ -3,14 +3,11 @@ def main(file_path):
     """
     Main function to load data, preprocess, train and evaluate models, and plot predictions.
     """
-    # LOAD the data
-    df = load_data(file_path)
-
-    df = remove_col(df)
-    df = remove_line(df)
+    # LOAD AND PREP the data
+    data_red, time_stamp = prep_csv(file_path)
 
     # SPLIT the data
-    X_train, X_test, y_train, y_test = split(df,0.2)
+    X_train, X_test, y_train, y_test = split(data_red,0.2)
 
     # PRE-PROCESS the data
     X_train, X_test = scale(X_train,X_test)
@@ -26,3 +23,5 @@ def main(file_path):
 
     # PLOT predictions vs actual data
     plot_predictions(y_test, predictions)
+
+    return results, predictions
